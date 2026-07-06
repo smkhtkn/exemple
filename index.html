@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Strasbourg · музейный киоск</title>
+<style>
+  html,body{margin:0;height:100%;overflow:hidden;background:#0c0f13}
+  canvas{display:block;touch-action:none}
+  #hint{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);
+        font:500 15px/1 -apple-system,system-ui,sans-serif;color:#cfd6dd;
+        background:rgba(20,24,29,.65);backdrop-filter:blur(6px);
+        padding:10px 18px;border-radius:999px;pointer-events:none;transition:opacity .8s}
+</style>
+</head>
+<body>
+<div id="hint">Проведите пальцем — поворот · щипок или колесо — масштаб</div>
+<div id="err" style="position:fixed;top:12px;left:12px;right:12px;display:none;z-index:9;
+     font:13px/1.5 ui-monospace,Menlo,monospace;color:#ffb4b4;background:rgba(60,10,10,.9);
+     padding:12px 16px;border-radius:10px;white-space:pre-wrap"></div>
+<script>
+  const showErr = (m) => { const e = document.getElementById('err');
+    e.style.display = 'block'; e.textContent += m + '\n'; };
+  addEventListener('error', (e) => showErr('Ошибка: ' + (e.message || e.filename)), true);
+  addEventListener('unhandledrejection', (e) => showErr('Ошибка: ' + e.reason));
+</script>
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.170.0/build/three.module.js" } }
+</script>
+<script type="module" src="./view_depth.js"></script>
+</body>
+</html>

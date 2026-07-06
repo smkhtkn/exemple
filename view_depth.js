@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
-const COLOR_URL = '../textures/kontext_photo_final.png';
-const DEPTH_URL = '../textures/kontext_photo_final_depth.png';
+const COLOR_URL = 'kontext_photo_final.png';
+const DEPTH_URL = 'kontext_photo_final_depth.png';
 
 // --- настройки киоска --------------------------------------------------------
 // Углы можно переопределить в URL: ?yaw=15&pitch=8&relief=0.25
